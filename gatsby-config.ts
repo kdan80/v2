@@ -35,7 +35,7 @@ const config: GatsbyConfig = {
           resolve: 'gatsby-source-filesystem',
           options: {
               "name": "pages",
-              "path": `${__dirname}/pages/`
+              "path": `${__dirname}/src/pages/`
           },
           __key: "pages"
       },
@@ -46,7 +46,7 @@ const config: GatsbyConfig = {
           path: `${__dirname}/content/`,
         },
         __key: "content"
-    }
+      }
     ]
 };
 
