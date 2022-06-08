@@ -1,4 +1,15 @@
-module.exports = {
+interface NavLink {
+    name: string,
+    url: string
+};
+
+interface Config {
+    email: string,
+    skills: string[],
+    navLinks: NavLink[]
+};
+
+const config: Config = {
     email: "kierandansey80@gmail.com",
 
     skills: [
@@ -31,3 +42,5 @@ module.exports = {
         }
     ]
 }
+
+module.exports = config;
