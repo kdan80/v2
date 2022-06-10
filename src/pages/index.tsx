@@ -9,8 +9,7 @@ interface IProps {
 const IndexPage: React.FC<IProps> = ({location}) => {
     return (
       <Layout location={location}>
-        <div>Hello</div>
-        <div>World</div>
+        <div>hello</div>
       </Layout>
     )
 }
