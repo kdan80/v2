@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import mixins from "@styles/_mixins";
 import { DocumentHead, Footer, Header, Loader, Section, SocialsList } from "@components";
 import { GlobalStyle } from "@styles";
@@ -45,15 +44,12 @@ const Layout: React.FC<IProps> = ({children, location}) => {
 
     return (
         <>
-            <App>
-                {children}
-            </App>
-
-            {/* <DocumentHead />
+            <DocumentHead />
             <GlobalStyle />
             <App id="root" className="root">
                 <div className="background" />
-                {
+                {children}
+                {/* {
                     isLoading && isHome
                         //&& false
                         ?   <Loader
@@ -80,8 +76,8 @@ const Layout: React.FC<IProps> = ({children, location}) => {
                                         </MainContent>
                                         <SocialsList scrolledToTop={scrolledToTop} />
                                     </>
-                }
-            </App> */}
+                } */}
+            </App>
         </>
     );
 };
