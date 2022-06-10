@@ -49,7 +49,7 @@ const Layout: React.FC<IProps> = ({children, location}) => {
             <App id="root" className="root">
                 <div className="background" />
                 {children}
-                {/* {
+                {
                     isLoading && isHome
                         //&& false
                         ?   <Loader
@@ -63,9 +63,9 @@ const Layout: React.FC<IProps> = ({children, location}) => {
                                     </MainContent>
                                 :
                                     <>
-                                        <Header
+                                        {/* <Header
                                             scrollDirection={scrollDirection}
-                                            scrolledToTop={scrolledToTop}/>
+                                            scrolledToTop={scrolledToTop}/> */}
                                         <MainContent>
                                             {
                                                 children.map(child => (
@@ -74,9 +74,9 @@ const Layout: React.FC<IProps> = ({children, location}) => {
                                             }
                                             <Footer />
                                         </MainContent>
-                                        <SocialsList scrolledToTop={scrolledToTop} />
+                                        {/* <SocialsList scrolledToTop={scrolledToTop} /> */}
                                     </>
-                } */}
+                }
             </App>
         </>
     );
