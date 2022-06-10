@@ -1,11 +1,17 @@
 import * as React from "react"
+import { Layout } from "../components"
+
+interface IProps {
+  location: Location
+}
 
 // markup
-const IndexPage = () => {
+const IndexPage: React.FC<IProps> = ({location}) => {
     return (
-      <div>
-        Hello world
-      </div>
+      <Layout location={location}>
+        <div>Hello</div>
+        <div>World</div>
+      </Layout>
     )
 }
 
