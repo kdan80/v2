@@ -29,13 +29,13 @@ const MainContent = styled.main`
 `;
 
 interface IProps {
+    location: Location,
+    viewportHeight: number,
     children: React.ReactNode,
-    location: Location
 }
 
-const Layout: React.FC<IProps> = ({children, location}) => {
+const Layout: React.FC<IProps> = ({location, viewportHeight, children}) => {
 
-    const viewportHeight = useViewportHeight();
     const scrollDirection = useScrollDirection();
     const scrolledToTop = useScrolledToTop();
     const isHome: boolean = location.pathname === "/";
@@ -48,7 +48,6 @@ const Layout: React.FC<IProps> = ({children, location}) => {
             <GlobalStyle />
             <App id="root" className="root">
                 <div className="background" />
-                {children}
                 {
                     isLoading && isHome
                         //&& false
@@ -67,11 +66,7 @@ const Layout: React.FC<IProps> = ({children, location}) => {
                                             scrollDirection={scrollDirection}
                                             scrolledToTop={scrolledToTop}/> */}
                                         <MainContent>
-                                            {
-                                                children.map(child => (
-                                                    React.cloneElement(child, {viewportHeight: viewportHeight})
-                                                ))
-                                            }
+                                            {children}
                                             <Footer />
                                         </MainContent>
                                         {/* <SocialsList scrolledToTop={scrolledToTop} /> */}
