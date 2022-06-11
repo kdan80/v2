@@ -1,5 +1,7 @@
 export { default as About }             from "./sections/About";
+export { default as Contact }           from "./sections/Contact";
 export { default as DocumentHead }      from "./DocumentHead";
+export { default as Featured }          from "./sections/Featured";
 export { default as Footer }            from "./Footer";
 export { default as Header }            from "./header/Header";
 export { default as Landing }           from "./sections/Landing";

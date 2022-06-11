@@ -20,7 +20,7 @@ const config: GatsbyConfig = {
                 "icon": "src/images/icon.png"
             }
         }, 
-        "gatsby-plugin-mdx", 
+        "gatsby-transformer-remark", 
         "gatsby-plugin-sharp", 
         "gatsby-transformer-sharp", 
         {
@@ -30,23 +30,23 @@ const config: GatsbyConfig = {
                 "path": `${__dirname}/src/images/`
             },
             __key: "images"
-      }, 
-      {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-              "name": "pages",
-              "path": `${__dirname}/src/pages/`
-          },
-          __key: "pages"
-      },
-      {
-        resolve: "gatsby-source-filesystem",
-        options: {
-          name: "content",
-          path: `${__dirname}/content/`,
+        }, 
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                "name": "pages",
+                "path": `${__dirname}/src/pages/`
+            },
+            __key: "pages"
         },
-        __key: "content"
-      }
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+            name: "content",
+            path: `${__dirname}/content/`,
+            },
+            __key: "content"
+        }
     ]
 };
 

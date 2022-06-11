@@ -1,5 +1,5 @@
 import * as React from "react"
-import { About, Landing, Layout } from "@components"
+import { About, Contact, Featured, Landing, Layout } from "@components"
 import { useViewportHeight } from "@hooks"
 
 interface IProps {
@@ -15,6 +15,8 @@ const IndexPage: React.FC<IProps> = ({location}) => {
       <Layout location={location} viewportHeight={viewportHeight}>
         <Landing viewportHeight={viewportHeight} />
         <About viewportHeight={viewportHeight} />
+        <Featured viewportHright={viewportHeight} />
+        <Contact viewportHeight={viewportHeight} />
       </Layout>
     )
 }

@@ -425,9 +425,13 @@ type File = Node & {
   readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
   readonly ctime: Scalars['Date'];
   readonly ctimeMs: Scalars['Float'];
   readonly dev: Scalars['Int'];
@@ -640,6 +644,102 @@ type FileFieldsEnum =
   | 'childImageSharp.resize.src'
   | 'childImageSharp.resize.tracedSVG'
   | 'childImageSharp.resize.width'
+  | 'childMarkdownRemark.children'
+  | 'childMarkdownRemark.children.children'
+  | 'childMarkdownRemark.children.children.children'
+  | 'childMarkdownRemark.children.children.id'
+  | 'childMarkdownRemark.children.id'
+  | 'childMarkdownRemark.children.internal.content'
+  | 'childMarkdownRemark.children.internal.contentDigest'
+  | 'childMarkdownRemark.children.internal.description'
+  | 'childMarkdownRemark.children.internal.fieldOwners'
+  | 'childMarkdownRemark.children.internal.ignoreType'
+  | 'childMarkdownRemark.children.internal.mediaType'
+  | 'childMarkdownRemark.children.internal.owner'
+  | 'childMarkdownRemark.children.internal.type'
+  | 'childMarkdownRemark.children.parent.children'
+  | 'childMarkdownRemark.children.parent.id'
+  | 'childMarkdownRemark.excerpt'
+  | 'childMarkdownRemark.excerptAst'
+  | 'childMarkdownRemark.fileAbsolutePath'
+  | 'childMarkdownRemark.frontmatter.cover.absolutePath'
+  | 'childMarkdownRemark.frontmatter.cover.accessTime'
+  | 'childMarkdownRemark.frontmatter.cover.atime'
+  | 'childMarkdownRemark.frontmatter.cover.atimeMs'
+  | 'childMarkdownRemark.frontmatter.cover.base'
+  | 'childMarkdownRemark.frontmatter.cover.birthTime'
+  | 'childMarkdownRemark.frontmatter.cover.birthtime'
+  | 'childMarkdownRemark.frontmatter.cover.birthtimeMs'
+  | 'childMarkdownRemark.frontmatter.cover.blksize'
+  | 'childMarkdownRemark.frontmatter.cover.blocks'
+  | 'childMarkdownRemark.frontmatter.cover.changeTime'
+  | 'childMarkdownRemark.frontmatter.cover.children'
+  | 'childMarkdownRemark.frontmatter.cover.childrenImageSharp'
+  | 'childMarkdownRemark.frontmatter.cover.childrenMarkdownRemark'
+  | 'childMarkdownRemark.frontmatter.cover.ctime'
+  | 'childMarkdownRemark.frontmatter.cover.ctimeMs'
+  | 'childMarkdownRemark.frontmatter.cover.dev'
+  | 'childMarkdownRemark.frontmatter.cover.dir'
+  | 'childMarkdownRemark.frontmatter.cover.ext'
+  | 'childMarkdownRemark.frontmatter.cover.extension'
+  | 'childMarkdownRemark.frontmatter.cover.gid'
+  | 'childMarkdownRemark.frontmatter.cover.id'
+  | 'childMarkdownRemark.frontmatter.cover.ino'
+  | 'childMarkdownRemark.frontmatter.cover.mode'
+  | 'childMarkdownRemark.frontmatter.cover.modifiedTime'
+  | 'childMarkdownRemark.frontmatter.cover.mtime'
+  | 'childMarkdownRemark.frontmatter.cover.mtimeMs'
+  | 'childMarkdownRemark.frontmatter.cover.name'
+  | 'childMarkdownRemark.frontmatter.cover.nlink'
+  | 'childMarkdownRemark.frontmatter.cover.prettySize'
+  | 'childMarkdownRemark.frontmatter.cover.publicURL'
+  | 'childMarkdownRemark.frontmatter.cover.rdev'
+  | 'childMarkdownRemark.frontmatter.cover.relativeDirectory'
+  | 'childMarkdownRemark.frontmatter.cover.relativePath'
+  | 'childMarkdownRemark.frontmatter.cover.root'
+  | 'childMarkdownRemark.frontmatter.cover.size'
+  | 'childMarkdownRemark.frontmatter.cover.sourceInstanceName'
+  | 'childMarkdownRemark.frontmatter.cover.uid'
+  | 'childMarkdownRemark.frontmatter.date'
+  | 'childMarkdownRemark.frontmatter.external'
+  | 'childMarkdownRemark.frontmatter.github'
+  | 'childMarkdownRemark.frontmatter.tech'
+  | 'childMarkdownRemark.frontmatter.title'
+  | 'childMarkdownRemark.headings'
+  | 'childMarkdownRemark.headings.depth'
+  | 'childMarkdownRemark.headings.id'
+  | 'childMarkdownRemark.headings.value'
+  | 'childMarkdownRemark.html'
+  | 'childMarkdownRemark.htmlAst'
+  | 'childMarkdownRemark.id'
+  | 'childMarkdownRemark.internal.content'
+  | 'childMarkdownRemark.internal.contentDigest'
+  | 'childMarkdownRemark.internal.description'
+  | 'childMarkdownRemark.internal.fieldOwners'
+  | 'childMarkdownRemark.internal.ignoreType'
+  | 'childMarkdownRemark.internal.mediaType'
+  | 'childMarkdownRemark.internal.owner'
+  | 'childMarkdownRemark.internal.type'
+  | 'childMarkdownRemark.parent.children'
+  | 'childMarkdownRemark.parent.children.children'
+  | 'childMarkdownRemark.parent.children.id'
+  | 'childMarkdownRemark.parent.id'
+  | 'childMarkdownRemark.parent.internal.content'
+  | 'childMarkdownRemark.parent.internal.contentDigest'
+  | 'childMarkdownRemark.parent.internal.description'
+  | 'childMarkdownRemark.parent.internal.fieldOwners'
+  | 'childMarkdownRemark.parent.internal.ignoreType'
+  | 'childMarkdownRemark.parent.internal.mediaType'
+  | 'childMarkdownRemark.parent.internal.owner'
+  | 'childMarkdownRemark.parent.internal.type'
+  | 'childMarkdownRemark.parent.parent.children'
+  | 'childMarkdownRemark.parent.parent.id'
+  | 'childMarkdownRemark.rawMarkdownBody'
+  | 'childMarkdownRemark.tableOfContents'
+  | 'childMarkdownRemark.timeToRead'
+  | 'childMarkdownRemark.wordCount.paragraphs'
+  | 'childMarkdownRemark.wordCount.sentences'
+  | 'childMarkdownRemark.wordCount.words'
   | 'children'
   | 'childrenImageSharp'
   | 'childrenImageSharp.children'
@@ -712,6 +812,103 @@ type FileFieldsEnum =
   | 'childrenImageSharp.resize.src'
   | 'childrenImageSharp.resize.tracedSVG'
   | 'childrenImageSharp.resize.width'
+  | 'childrenMarkdownRemark'
+  | 'childrenMarkdownRemark.children'
+  | 'childrenMarkdownRemark.children.children'
+  | 'childrenMarkdownRemark.children.children.children'
+  | 'childrenMarkdownRemark.children.children.id'
+  | 'childrenMarkdownRemark.children.id'
+  | 'childrenMarkdownRemark.children.internal.content'
+  | 'childrenMarkdownRemark.children.internal.contentDigest'
+  | 'childrenMarkdownRemark.children.internal.description'
+  | 'childrenMarkdownRemark.children.internal.fieldOwners'
+  | 'childrenMarkdownRemark.children.internal.ignoreType'
+  | 'childrenMarkdownRemark.children.internal.mediaType'
+  | 'childrenMarkdownRemark.children.internal.owner'
+  | 'childrenMarkdownRemark.children.internal.type'
+  | 'childrenMarkdownRemark.children.parent.children'
+  | 'childrenMarkdownRemark.children.parent.id'
+  | 'childrenMarkdownRemark.excerpt'
+  | 'childrenMarkdownRemark.excerptAst'
+  | 'childrenMarkdownRemark.fileAbsolutePath'
+  | 'childrenMarkdownRemark.frontmatter.cover.absolutePath'
+  | 'childrenMarkdownRemark.frontmatter.cover.accessTime'
+  | 'childrenMarkdownRemark.frontmatter.cover.atime'
+  | 'childrenMarkdownRemark.frontmatter.cover.atimeMs'
+  | 'childrenMarkdownRemark.frontmatter.cover.base'
+  | 'childrenMarkdownRemark.frontmatter.cover.birthTime'
+  | 'childrenMarkdownRemark.frontmatter.cover.birthtime'
+  | 'childrenMarkdownRemark.frontmatter.cover.birthtimeMs'
+  | 'childrenMarkdownRemark.frontmatter.cover.blksize'
+  | 'childrenMarkdownRemark.frontmatter.cover.blocks'
+  | 'childrenMarkdownRemark.frontmatter.cover.changeTime'
+  | 'childrenMarkdownRemark.frontmatter.cover.children'
+  | 'childrenMarkdownRemark.frontmatter.cover.childrenImageSharp'
+  | 'childrenMarkdownRemark.frontmatter.cover.childrenMarkdownRemark'
+  | 'childrenMarkdownRemark.frontmatter.cover.ctime'
+  | 'childrenMarkdownRemark.frontmatter.cover.ctimeMs'
+  | 'childrenMarkdownRemark.frontmatter.cover.dev'
+  | 'childrenMarkdownRemark.frontmatter.cover.dir'
+  | 'childrenMarkdownRemark.frontmatter.cover.ext'
+  | 'childrenMarkdownRemark.frontmatter.cover.extension'
+  | 'childrenMarkdownRemark.frontmatter.cover.gid'
+  | 'childrenMarkdownRemark.frontmatter.cover.id'
+  | 'childrenMarkdownRemark.frontmatter.cover.ino'
+  | 'childrenMarkdownRemark.frontmatter.cover.mode'
+  | 'childrenMarkdownRemark.frontmatter.cover.modifiedTime'
+  | 'childrenMarkdownRemark.frontmatter.cover.mtime'
+  | 'childrenMarkdownRemark.frontmatter.cover.mtimeMs'
+  | 'childrenMarkdownRemark.frontmatter.cover.name'
+  | 'childrenMarkdownRemark.frontmatter.cover.nlink'
+  | 'childrenMarkdownRemark.frontmatter.cover.prettySize'
+  | 'childrenMarkdownRemark.frontmatter.cover.publicURL'
+  | 'childrenMarkdownRemark.frontmatter.cover.rdev'
+  | 'childrenMarkdownRemark.frontmatter.cover.relativeDirectory'
+  | 'childrenMarkdownRemark.frontmatter.cover.relativePath'
+  | 'childrenMarkdownRemark.frontmatter.cover.root'
+  | 'childrenMarkdownRemark.frontmatter.cover.size'
+  | 'childrenMarkdownRemark.frontmatter.cover.sourceInstanceName'
+  | 'childrenMarkdownRemark.frontmatter.cover.uid'
+  | 'childrenMarkdownRemark.frontmatter.date'
+  | 'childrenMarkdownRemark.frontmatter.external'
+  | 'childrenMarkdownRemark.frontmatter.github'
+  | 'childrenMarkdownRemark.frontmatter.tech'
+  | 'childrenMarkdownRemark.frontmatter.title'
+  | 'childrenMarkdownRemark.headings'
+  | 'childrenMarkdownRemark.headings.depth'
+  | 'childrenMarkdownRemark.headings.id'
+  | 'childrenMarkdownRemark.headings.value'
+  | 'childrenMarkdownRemark.html'
+  | 'childrenMarkdownRemark.htmlAst'
+  | 'childrenMarkdownRemark.id'
+  | 'childrenMarkdownRemark.internal.content'
+  | 'childrenMarkdownRemark.internal.contentDigest'
+  | 'childrenMarkdownRemark.internal.description'
+  | 'childrenMarkdownRemark.internal.fieldOwners'
+  | 'childrenMarkdownRemark.internal.ignoreType'
+  | 'childrenMarkdownRemark.internal.mediaType'
+  | 'childrenMarkdownRemark.internal.owner'
+  | 'childrenMarkdownRemark.internal.type'
+  | 'childrenMarkdownRemark.parent.children'
+  | 'childrenMarkdownRemark.parent.children.children'
+  | 'childrenMarkdownRemark.parent.children.id'
+  | 'childrenMarkdownRemark.parent.id'
+  | 'childrenMarkdownRemark.parent.internal.content'
+  | 'childrenMarkdownRemark.parent.internal.contentDigest'
+  | 'childrenMarkdownRemark.parent.internal.description'
+  | 'childrenMarkdownRemark.parent.internal.fieldOwners'
+  | 'childrenMarkdownRemark.parent.internal.ignoreType'
+  | 'childrenMarkdownRemark.parent.internal.mediaType'
+  | 'childrenMarkdownRemark.parent.internal.owner'
+  | 'childrenMarkdownRemark.parent.internal.type'
+  | 'childrenMarkdownRemark.parent.parent.children'
+  | 'childrenMarkdownRemark.parent.parent.id'
+  | 'childrenMarkdownRemark.rawMarkdownBody'
+  | 'childrenMarkdownRemark.tableOfContents'
+  | 'childrenMarkdownRemark.timeToRead'
+  | 'childrenMarkdownRemark.wordCount.paragraphs'
+  | 'childrenMarkdownRemark.wordCount.sentences'
+  | 'childrenMarkdownRemark.wordCount.words'
   | 'children.children'
   | 'children.children.children'
   | 'children.children.children.children'
@@ -834,8 +1031,10 @@ type FileFilterInput = {
   readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   readonly dev: InputMaybe<IntQueryOperatorInput>;
@@ -946,14 +1145,6 @@ type GatsbyImagePlaceholder =
   | 'dominantColor'
   | 'none'
   | 'tracedSVG';
-
-type HeadingsMdx =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6';
 
 type ImageCropFocus =
   | 17
@@ -1459,88 +1650,125 @@ type JSONQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['JSON']>;
 };
 
-type Mdx = Node & {
-  readonly body: Scalars['String'];
+type MarkdownExcerptFormats =
+  | 'HTML'
+  | 'MARKDOWN'
+  | 'PLAIN';
+
+type MarkdownHeading = {
+  readonly depth: Maybe<Scalars['Int']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly value: Maybe<Scalars['String']>;
+};
+
+type MarkdownHeadingFilterInput = {
+  readonly depth: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type MarkdownHeadingFilterListInput = {
+  readonly elemMatch: InputMaybe<MarkdownHeadingFilterInput>;
+};
+
+type MarkdownHeadingLevels =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6';
+
+type MarkdownRemark = Node & {
   readonly children: ReadonlyArray<Node>;
-  readonly excerpt: Scalars['String'];
-  readonly fileAbsolutePath: Scalars['String'];
-  readonly frontmatter: Maybe<MdxFrontmatter>;
-  readonly headings: Maybe<ReadonlyArray<Maybe<MdxHeadingMdx>>>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly excerptAst: Maybe<Scalars['JSON']>;
+  readonly fileAbsolutePath: Maybe<Scalars['String']>;
+  readonly frontmatter: Maybe<MarkdownRemarkFrontmatter>;
+  readonly headings: Maybe<ReadonlyArray<Maybe<MarkdownHeading>>>;
   readonly html: Maybe<Scalars['String']>;
+  readonly htmlAst: Maybe<Scalars['JSON']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly mdxAST: Maybe<Scalars['JSON']>;
   readonly parent: Maybe<Node>;
-  readonly rawBody: Scalars['String'];
-  readonly slug: Maybe<Scalars['String']>;
-  readonly tableOfContents: Maybe<Scalars['JSON']>;
+  readonly rawMarkdownBody: Maybe<Scalars['String']>;
+  readonly tableOfContents: Maybe<Scalars['String']>;
   readonly timeToRead: Maybe<Scalars['Int']>;
-  readonly wordCount: Maybe<MdxWordCount>;
+  readonly wordCount: Maybe<MarkdownWordCount>;
 };
 
 
-type Mdx_excerptArgs = {
+type MarkdownRemark_excerptArgs = {
+  format?: InputMaybe<MarkdownExcerptFormats>;
   pruneLength?: InputMaybe<Scalars['Int']>;
   truncate?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-type Mdx_headingsArgs = {
-  depth: InputMaybe<HeadingsMdx>;
+type MarkdownRemark_excerptAstArgs = {
+  pruneLength?: InputMaybe<Scalars['Int']>;
+  truncate?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-type Mdx_tableOfContentsArgs = {
+type MarkdownRemark_headingsArgs = {
+  depth: InputMaybe<MarkdownHeadingLevels>;
+};
+
+
+type MarkdownRemark_tableOfContentsArgs = {
+  absolute?: InputMaybe<Scalars['Boolean']>;
+  heading: InputMaybe<Scalars['String']>;
   maxDepth: InputMaybe<Scalars['Int']>;
+  pathToSlugField?: InputMaybe<Scalars['String']>;
 };
 
-type MdxConnection = {
+type MarkdownRemarkConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<MdxEdge>;
-  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly edges: ReadonlyArray<MarkdownRemarkEdge>;
+  readonly group: ReadonlyArray<MarkdownRemarkGroupConnection>;
   readonly max: Maybe<Scalars['Float']>;
   readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Mdx>;
+  readonly nodes: ReadonlyArray<MarkdownRemark>;
   readonly pageInfo: PageInfo;
   readonly sum: Maybe<Scalars['Float']>;
   readonly totalCount: Scalars['Int'];
 };
 
 
-type MdxConnection_distinctArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkConnection_distinctArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxConnection_groupArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkConnection_groupArgs = {
+  field: MarkdownRemarkFieldsEnum;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
-type MdxConnection_maxArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkConnection_maxArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxConnection_minArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkConnection_minArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxConnection_sumArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkConnection_sumArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
-type MdxEdge = {
-  readonly next: Maybe<Mdx>;
-  readonly node: Mdx;
-  readonly previous: Maybe<Mdx>;
+type MarkdownRemarkEdge = {
+  readonly next: Maybe<MarkdownRemark>;
+  readonly node: MarkdownRemark;
+  readonly previous: Maybe<MarkdownRemark>;
 };
 
-type MdxFieldsEnum =
-  | 'body'
+type MarkdownRemarkFieldsEnum =
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -1581,12 +1809,97 @@ type MdxFieldsEnum =
   | 'children.parent.parent.children'
   | 'children.parent.parent.id'
   | 'excerpt'
+  | 'excerptAst'
   | 'fileAbsolutePath'
+  | 'frontmatter.cover.absolutePath'
+  | 'frontmatter.cover.accessTime'
+  | 'frontmatter.cover.atime'
+  | 'frontmatter.cover.atimeMs'
+  | 'frontmatter.cover.base'
+  | 'frontmatter.cover.birthTime'
+  | 'frontmatter.cover.birthtime'
+  | 'frontmatter.cover.birthtimeMs'
+  | 'frontmatter.cover.blksize'
+  | 'frontmatter.cover.blocks'
+  | 'frontmatter.cover.changeTime'
+  | 'frontmatter.cover.childImageSharp.children'
+  | 'frontmatter.cover.childImageSharp.gatsbyImageData'
+  | 'frontmatter.cover.childImageSharp.id'
+  | 'frontmatter.cover.childMarkdownRemark.children'
+  | 'frontmatter.cover.childMarkdownRemark.excerpt'
+  | 'frontmatter.cover.childMarkdownRemark.excerptAst'
+  | 'frontmatter.cover.childMarkdownRemark.fileAbsolutePath'
+  | 'frontmatter.cover.childMarkdownRemark.headings'
+  | 'frontmatter.cover.childMarkdownRemark.html'
+  | 'frontmatter.cover.childMarkdownRemark.htmlAst'
+  | 'frontmatter.cover.childMarkdownRemark.id'
+  | 'frontmatter.cover.childMarkdownRemark.rawMarkdownBody'
+  | 'frontmatter.cover.childMarkdownRemark.tableOfContents'
+  | 'frontmatter.cover.childMarkdownRemark.timeToRead'
+  | 'frontmatter.cover.children'
+  | 'frontmatter.cover.childrenImageSharp'
+  | 'frontmatter.cover.childrenImageSharp.children'
+  | 'frontmatter.cover.childrenImageSharp.gatsbyImageData'
+  | 'frontmatter.cover.childrenImageSharp.id'
+  | 'frontmatter.cover.childrenMarkdownRemark'
+  | 'frontmatter.cover.childrenMarkdownRemark.children'
+  | 'frontmatter.cover.childrenMarkdownRemark.excerpt'
+  | 'frontmatter.cover.childrenMarkdownRemark.excerptAst'
+  | 'frontmatter.cover.childrenMarkdownRemark.fileAbsolutePath'
+  | 'frontmatter.cover.childrenMarkdownRemark.headings'
+  | 'frontmatter.cover.childrenMarkdownRemark.html'
+  | 'frontmatter.cover.childrenMarkdownRemark.htmlAst'
+  | 'frontmatter.cover.childrenMarkdownRemark.id'
+  | 'frontmatter.cover.childrenMarkdownRemark.rawMarkdownBody'
+  | 'frontmatter.cover.childrenMarkdownRemark.tableOfContents'
+  | 'frontmatter.cover.childrenMarkdownRemark.timeToRead'
+  | 'frontmatter.cover.children.children'
+  | 'frontmatter.cover.children.id'
+  | 'frontmatter.cover.ctime'
+  | 'frontmatter.cover.ctimeMs'
+  | 'frontmatter.cover.dev'
+  | 'frontmatter.cover.dir'
+  | 'frontmatter.cover.ext'
+  | 'frontmatter.cover.extension'
+  | 'frontmatter.cover.gid'
+  | 'frontmatter.cover.id'
+  | 'frontmatter.cover.ino'
+  | 'frontmatter.cover.internal.content'
+  | 'frontmatter.cover.internal.contentDigest'
+  | 'frontmatter.cover.internal.description'
+  | 'frontmatter.cover.internal.fieldOwners'
+  | 'frontmatter.cover.internal.ignoreType'
+  | 'frontmatter.cover.internal.mediaType'
+  | 'frontmatter.cover.internal.owner'
+  | 'frontmatter.cover.internal.type'
+  | 'frontmatter.cover.mode'
+  | 'frontmatter.cover.modifiedTime'
+  | 'frontmatter.cover.mtime'
+  | 'frontmatter.cover.mtimeMs'
+  | 'frontmatter.cover.name'
+  | 'frontmatter.cover.nlink'
+  | 'frontmatter.cover.parent.children'
+  | 'frontmatter.cover.parent.id'
+  | 'frontmatter.cover.prettySize'
+  | 'frontmatter.cover.publicURL'
+  | 'frontmatter.cover.rdev'
+  | 'frontmatter.cover.relativeDirectory'
+  | 'frontmatter.cover.relativePath'
+  | 'frontmatter.cover.root'
+  | 'frontmatter.cover.size'
+  | 'frontmatter.cover.sourceInstanceName'
+  | 'frontmatter.cover.uid'
+  | 'frontmatter.date'
+  | 'frontmatter.external'
+  | 'frontmatter.github'
+  | 'frontmatter.tech'
   | 'frontmatter.title'
   | 'headings'
   | 'headings.depth'
+  | 'headings.id'
   | 'headings.value'
   | 'html'
+  | 'htmlAst'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -1596,7 +1909,6 @@ type MdxFieldsEnum =
   | 'internal.mediaType'
   | 'internal.owner'
   | 'internal.type'
-  | 'mdxAST'
   | 'parent.children'
   | 'parent.children.children'
   | 'parent.children.children.children'
@@ -1635,108 +1947,106 @@ type MdxFieldsEnum =
   | 'parent.parent.internal.type'
   | 'parent.parent.parent.children'
   | 'parent.parent.parent.id'
-  | 'rawBody'
-  | 'slug'
+  | 'rawMarkdownBody'
   | 'tableOfContents'
   | 'timeToRead'
   | 'wordCount.paragraphs'
   | 'wordCount.sentences'
   | 'wordCount.words';
 
-type MdxFilterInput = {
-  readonly body: InputMaybe<StringQueryOperatorInput>;
+type MarkdownRemarkFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly excerptAst: InputMaybe<JSONQueryOperatorInput>;
   readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  readonly headings: InputMaybe<MdxHeadingMdxFilterListInput>;
+  readonly frontmatter: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
+  readonly headings: InputMaybe<MarkdownHeadingFilterListInput>;
   readonly html: InputMaybe<StringQueryOperatorInput>;
+  readonly htmlAst: InputMaybe<JSONQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly mdxAST: InputMaybe<JSONQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly rawBody: InputMaybe<StringQueryOperatorInput>;
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-  readonly tableOfContents: InputMaybe<JSONQueryOperatorInput>;
+  readonly rawMarkdownBody: InputMaybe<StringQueryOperatorInput>;
+  readonly tableOfContents: InputMaybe<StringQueryOperatorInput>;
   readonly timeToRead: InputMaybe<IntQueryOperatorInput>;
-  readonly wordCount: InputMaybe<MdxWordCountFilterInput>;
+  readonly wordCount: InputMaybe<MarkdownWordCountFilterInput>;
 };
 
-type MdxFrontmatter = {
-  readonly title: Scalars['String'];
+type MarkdownRemarkFilterListInput = {
+  readonly elemMatch: InputMaybe<MarkdownRemarkFilterInput>;
 };
 
-type MdxFrontmatterFilterInput = {
+type MarkdownRemarkFrontmatter = {
+  readonly cover: Maybe<File>;
+  readonly date: Maybe<Scalars['String']>;
+  readonly external: Maybe<Scalars['String']>;
+  readonly github: Maybe<Scalars['String']>;
+  readonly tech: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type MarkdownRemarkFrontmatterFilterInput = {
+  readonly cover: InputMaybe<FileFilterInput>;
+  readonly date: InputMaybe<StringQueryOperatorInput>;
+  readonly external: InputMaybe<StringQueryOperatorInput>;
+  readonly github: InputMaybe<StringQueryOperatorInput>;
+  readonly tech: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
-type MdxGroupConnection = {
+type MarkdownRemarkGroupConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<MdxEdge>;
+  readonly edges: ReadonlyArray<MarkdownRemarkEdge>;
   readonly field: Scalars['String'];
   readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly group: ReadonlyArray<MarkdownRemarkGroupConnection>;
   readonly max: Maybe<Scalars['Float']>;
   readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Mdx>;
+  readonly nodes: ReadonlyArray<MarkdownRemark>;
   readonly pageInfo: PageInfo;
   readonly sum: Maybe<Scalars['Float']>;
   readonly totalCount: Scalars['Int'];
 };
 
 
-type MdxGroupConnection_distinctArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkGroupConnection_distinctArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxGroupConnection_groupArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkGroupConnection_groupArgs = {
+  field: MarkdownRemarkFieldsEnum;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
-type MdxGroupConnection_maxArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkGroupConnection_maxArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxGroupConnection_minArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkGroupConnection_minArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
 
-type MdxGroupConnection_sumArgs = {
-  field: MdxFieldsEnum;
+type MarkdownRemarkGroupConnection_sumArgs = {
+  field: MarkdownRemarkFieldsEnum;
 };
 
-type MdxHeadingMdx = {
-  readonly depth: Maybe<Scalars['Int']>;
-  readonly value: Maybe<Scalars['String']>;
-};
-
-type MdxHeadingMdxFilterInput = {
-  readonly depth: InputMaybe<IntQueryOperatorInput>;
-  readonly value: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MdxHeadingMdxFilterListInput = {
-  readonly elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
-};
-
-type MdxSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<MdxFieldsEnum>>>;
+type MarkdownRemarkSortInput = {
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<MarkdownRemarkFieldsEnum>>>;
   readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
-type MdxWordCount = {
+type MarkdownWordCount = {
   readonly paragraphs: Maybe<Scalars['Int']>;
   readonly sentences: Maybe<Scalars['Int']>;
   readonly words: Maybe<Scalars['Int']>;
 };
 
-type MdxWordCountFilterInput = {
+type MarkdownWordCountFilterInput = {
   readonly paragraphs: InputMaybe<IntQueryOperatorInput>;
   readonly sentences: InputMaybe<IntQueryOperatorInput>;
   readonly words: InputMaybe<IntQueryOperatorInput>;
@@ -1800,7 +2110,7 @@ type Query = {
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
-  readonly allMdx: MdxConnection;
+  readonly allMarkdownRemark: MarkdownRemarkConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly allSiteFunction: SiteFunctionConnection;
@@ -1809,7 +2119,7 @@ type Query = {
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
-  readonly mdx: Maybe<Mdx>;
+  readonly markdownRemark: Maybe<MarkdownRemark>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
   readonly siteFunction: Maybe<SiteFunction>;
@@ -1842,11 +2152,11 @@ type Query_allImageSharpArgs = {
 };
 
 
-type Query_allMdxArgs = {
-  filter: InputMaybe<MdxFilterInput>;
+type Query_allMarkdownRemarkArgs = {
+  filter: InputMaybe<MarkdownRemarkFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<MdxSortInput>;
+  sort: InputMaybe<MarkdownRemarkSortInput>;
 };
 
 
@@ -1942,8 +2252,10 @@ type Query_fileArgs = {
   blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   dev: InputMaybe<IntQueryOperatorInput>;
@@ -1986,23 +2298,22 @@ type Query_imageSharpArgs = {
 };
 
 
-type Query_mdxArgs = {
-  body: InputMaybe<StringQueryOperatorInput>;
+type Query_markdownRemarkArgs = {
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
+  excerptAst: InputMaybe<JSONQueryOperatorInput>;
   fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  headings: InputMaybe<MdxHeadingMdxFilterListInput>;
+  frontmatter: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
+  headings: InputMaybe<MarkdownHeadingFilterListInput>;
   html: InputMaybe<StringQueryOperatorInput>;
+  htmlAst: InputMaybe<JSONQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  mdxAST: InputMaybe<JSONQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  rawBody: InputMaybe<StringQueryOperatorInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  tableOfContents: InputMaybe<JSONQueryOperatorInput>;
+  rawMarkdownBody: InputMaybe<StringQueryOperatorInput>;
+  tableOfContents: InputMaybe<StringQueryOperatorInput>;
   timeToRead: InputMaybe<IntQueryOperatorInput>;
-  wordCount: InputMaybe<MdxWordCountFilterInput>;
+  wordCount: InputMaybe<MarkdownWordCountFilterInput>;
 };
 
 
