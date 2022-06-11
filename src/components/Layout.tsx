@@ -50,7 +50,7 @@ const Layout: React.FC<IProps> = ({location, viewportHeight, children}) => {
                 <div className="background" />
                 {
                     isLoading && isHome
-                        //&& false
+                        && false
                         ?   <Loader
                                 finishLoading={() => setIsLoading(false)}
                                 viewportHeight={viewportHeight} />

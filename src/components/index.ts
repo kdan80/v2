@@ -1,6 +1,8 @@
+export { default as About }             from "./sections/About";
 export { default as DocumentHead }      from "./DocumentHead";
 export { default as Footer }            from "./Footer";
 export { default as Landing }           from "./sections/Landing";
 export { default as Layout }            from "./Layout";
 export { default as Loader }            from "./Loader";
+export { default as NumberedHeading }   from "./NumberedHeading";
 export { default as Section }           from "./sections/Section";
