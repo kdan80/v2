@@ -6,3 +6,4 @@ export { default as Layout }            from "./Layout";
 export { default as Loader }            from "./Loader";
 export { default as NumberedHeading }   from "./NumberedHeading";
 export { default as Section }           from "./sections/Section";
+export { default as SocialsList }        from "./SocialsList";
