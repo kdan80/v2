@@ -62,9 +62,9 @@ const Layout: React.FC<IProps> = ({location, viewportHeight, children}) => {
                                     </MainContent>
                                 :
                                     <>
-                                        {/* <Header
+                                        <Header
                                             scrollDirection={scrollDirection}
-                                            scrolledToTop={scrolledToTop}/> */}
+                                            scrolledToTop={scrolledToTop}/>
                                         <MainContent>
                                             {children}
                                             <Footer />
