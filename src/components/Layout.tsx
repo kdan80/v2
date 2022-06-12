@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
 import mixins from "@styles/_mixins";
 import { DocumentHead, Footer, Header, Loader, Section, SocialsList } from "@components";
 import { GlobalStyle } from "@styles";
-import { useScrollDirection, useScrolledToTop } from "@hooks";
+import { useScrollDirection, useScrolledToTop, useViewportHeight } from "@hooks";
 
 const App = styled.div`
     ${mixins.flexCenter};
@@ -30,12 +30,12 @@ const MainContent = styled.main`
 
 interface IProps {
     location: Location,
-    viewportHeight: number,
-    children: React.ReactNode,
+    children: React.ReactElement[],
 }
 
-const Layout: React.FC<IProps> = ({location, viewportHeight, children}) => {
+const Layout: React.FC<IProps> = ({location, children}) => {
 
+    const viewportHeight = useViewportHeight(window.innerHeight)
     const scrollDirection = useScrollDirection();
     const scrolledToTop = useScrolledToTop();
     const isHome: boolean = location.pathname === "/";
@@ -66,7 +66,11 @@ const Layout: React.FC<IProps> = ({location, viewportHeight, children}) => {
                                             scrollDirection={scrollDirection}
                                             scrolledToTop={scrolledToTop}/>
                                         <MainContent>
-                                            {children}
+                                            {
+                                                children && children.map(child => (
+                                                    React.cloneElement(child, {viewportHeight: viewportHeight})
+                                                ))
+                                            }
                                             <Footer />
                                         </MainContent>
                                         <SocialsList scrolledToTop={scrolledToTop} />

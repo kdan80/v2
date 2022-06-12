@@ -347,17 +347,17 @@ const Featured: React.FC<IProps> = ({viewportHeight}) => {
             ) {
                 edges {
                     node {
-                    frontmatter {
-                        title
-                        cover {
-                            childImageSharp {
-                                gatsbyImageData(width: 720, placeholder: BLURRED, formats: [AUTO, WEBP])
+                        frontmatter {
+                            title
+                            cover {
+                                childImageSharp {
+                                    gatsbyImageData(width: 720, placeholder: BLURRED, formats: [AUTO, WEBP])
+                                }
                             }
+                            tech
+                            github
+                            external
                         }
-                        tech
-                        github
-                        external
-                    }
                     html
                     }
                 }
