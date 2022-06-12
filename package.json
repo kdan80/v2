@@ -8,8 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop:gatsby": "gatsby develop -H 192.168.1.21 -p 8000",
+    "develop:type-check": "tsc --watch",
+    "develop": "npm-run-all --parallel develop:gatsby develop:type-check",
+    "start": "npm-run-all --parallel develop:gatsby develop:type-check",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -31,6 +33,7 @@
     "gatsby-source-filesystem": "^4.16.0",
     "gatsby-transformer-remark": "^5.16.0",
     "gatsby-transformer-sharp": "^4.16.0",
+    "npm-run-all": "^4.1.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
