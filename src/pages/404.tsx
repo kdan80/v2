@@ -1,15 +1,6 @@
-import * as React from "react"
-import { Link } from "gatsby"
-
-
-
+import * as React from "react";
 // markup
 const NotFoundPage = () => {
-  return (
-    <main>
-      404 Not Found
-    </main>
-  )
-}
-
-export default NotFoundPage
+    return (React.createElement("main", null, "404 Not Found"));
+};
+export default NotFoundPage;

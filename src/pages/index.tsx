@@ -1,15 +1,12 @@
 import * as React from "react"
+import { PageProps } from "gatsby"
 import { About, Contact, Featured, Landing, Layout } from "@components"
 import { useViewportHeight } from "@hooks"
 
-interface IProps {
-  location: Location
-}
-
 // markup
-const IndexPage: React.FC<IProps> = ({location}) => {
+const IndexPage: React.FC<PageProps> = ({location}) => {
 
-    const viewportHeight = useViewportHeight(window.innerHeight);
+    const viewportHeight: number = useViewportHeight(window.innerHeight);
 
     return (
       <Layout location={location} viewportHeight={viewportHeight}>
