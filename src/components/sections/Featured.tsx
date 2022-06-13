@@ -439,7 +439,6 @@ const Featured: React.FC<IProps> = ({viewportHeight}) => {
                 </ProjectList>
             </motion.div>
         </StyledSection>
-
     );
 };
 

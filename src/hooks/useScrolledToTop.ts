@@ -2,7 +2,7 @@ import React from "react";
 
 const useScrolledToTop = () => {
 
-    const [scrolledToTop, setScrolledToTop] = React.useState(true);
+    const [scrolledToTop, setScrolledToTop] = React.useState<boolean>(true);
 
     React.useEffect(() => {
 
